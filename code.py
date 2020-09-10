@@ -100,16 +100,14 @@ while True:
     #step through sequence steps
     now = time.monotonic()
     if now - last_time >= step_length:
-
-        #pulse led for step
-        leds[current_step].value = not steps[current_step]
+        #pulse led for prev step
+        leds[last_step].value = not steps[last_step]
         #find step length
         step_length = translate(tempo_pin.value, 256, 65520, 1.0, 0.01)
         last_time = now
         midi.send(NoteOff(notes[last_step], 120))
         if steps[current_step] == True:
             midi.send(NoteOn(notes[current_step], 120))
-
         #increment step
         last_step = current_step
         current_step += 1

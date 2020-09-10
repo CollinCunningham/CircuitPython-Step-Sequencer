@@ -11,4 +11,4 @@ Assumes hardware connections:
 Known Issues
 ---
 - Intermittent variance in step duration
-- note off timing issues w some soft synths
+- some missing noteOffs after note value changes
